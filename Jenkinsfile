@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Start web server') {
             steps {
-                sh 'python3 MainScores.py &>flasklog.txt &'
+                sh 'python3 MainScores.py'
             }
         }
     }
