@@ -1,13 +1,12 @@
 import random
 import time
-import misc
-from os import system, name as sys_name
+import utils
 
 # can tweak these variables
 RANGE_MIN = 1
 RANGE_MAX = 100
 DISPLAY_NUMS_TIME = 0.7  # seconds
-DEBUG = False
+DEBUG = utils.DEBUG
 
 
 class MemoryGame:
@@ -31,7 +30,7 @@ class MemoryGame:
         print("It's your time to enter the numbers you memorized, in the correct order")
         user_list = []
         for i in range(1, self.difficulty + 1):
-            user_list.append(misc.validate_input_given_list(prompt=f"Nuber {i} : ", options_list=self.valid_answers))
+            user_list.append(utils.validate_input_given_list(prompt=f"Nuber {i} : ", options_list=self.valid_answers))
 
         return user_list
 
@@ -54,13 +53,15 @@ class MemoryGame:
 
         # generates and prints the sequence of numbers to memorize
         sequence = self.generate_sequence()
+        utils.clear_screen()
+        print('Memorize the following numbers: ')
         for number in sequence:
             print(number, end=" ")
         print()
 
         # clears the display after set time
         time.sleep(DISPLAY_NUMS_TIME)
-        system('cls' if sys_name == 'nt' else 'clear')
+        utils.clear_screen()
 
         # prompts the user to enter the numbers he memorized
         user_list = self.get_list_from_user()

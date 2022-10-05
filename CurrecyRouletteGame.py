@@ -1,13 +1,13 @@
 import random
 import requests
-import misc
+import utils
 
 # can tweak these variables
 URL = 'https://v6.exchangerate-api.com/v6/fd6de2ab3c500dfeabb006ac/latest/USD' # URL for API requests for USD rates
 RANGE_MIN = 1
 RANGE_MAX = 100
 ACCURACY = 4 # number of digits after decimal point
-DEBUG = False
+DEBUG = utils.DEBUG
 
 
 class CurrencyRouletteGame:
@@ -30,7 +30,7 @@ class CurrencyRouletteGame:
 
     def get_guess_from_user(self):
         # gets user input and sends it to input validation
-        user_input = float(misc.validate_input_is_number(f"Guess how much {self.dollar_total} Dollars worth in Shekels: "))
+        user_input = float(utils.validate_input_is_number(f"Guess how much {self.dollar_total} Dollars worth in Shekels: "))
         user_input = round(user_input, ACCURACY)  # rounded by ACCURACY
 
         if DEBUG: print(f"\nDEBUG: user_input: {user_input}\n")

@@ -1,10 +1,10 @@
 import random
-import misc
+import utils
 
 # can tweak these variables
 MULTI_EXPONENT = 3
 TRIES = 3
-DEBUG = False
+DEBUG = utils.DEBUG
 
 
 class GuessGame:
@@ -20,8 +20,8 @@ class GuessGame:
         return random.randint(1, self.difficulty)
 
     def get_guess_from_user(self):
-        # function taken from misc.py for validating user inputs
-        return misc.validate_input_given_list(prompt=f"Please enter your guess ({1}-{self.difficulty}) : ", options_list=self.valid_answers)
+        # function taken from utils.py for validating user inputs
+        return utils.validate_input_given_list(prompt=f"Please enter your guess ({1}-{self.difficulty}) : ", options_list=self.valid_answers)
 
     def compare_results(self, user_input):
         if DEBUG: print(f"DEBUG: secret: {self.secret}, user_input: {user_input}\n")

@@ -1,13 +1,19 @@
 from Live import Live
+from Scores import Scores
 
 
 def main():
-    live = Live(input("Please enter your name: "))
+    username = input("Please enter your name: ")
+    scores = Scores(username)
+    live = Live(username, scores)
 
     exit_program = False
     while not exit_program:
         print(live.welcome())
-        live.load_game()
+        returned = live.load_game()
+
+        if returned == 0:
+            break
 
         if input("\nPress Enter to start again, or 'E/e' to exit: ").upper() == 'E':
             print("Good bye!")
