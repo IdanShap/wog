@@ -8,6 +8,10 @@ __pycache__/
 # C extensions
 *.so
 
+# my addition - WOG
+*.csv
+flasklog*
+
 # Distribution / packaging
 .Python
 env/
@@ -184,6 +188,6 @@ fabric.properties
 # idea folder, uncomment if you don't need it
 # .idea
 
-Scores.csv
+
 
 
