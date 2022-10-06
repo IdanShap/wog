@@ -12,8 +12,14 @@ pipeline {
         }
         stage('Move files to /var/tmp/') {
             steps {
-                sh 'mkdir /var/tmp/wog/'
-                sh 'cp ./* /var/tmp/wog/'
+                script {
+                    try {
+                        sh 'mkdir /var/tmp/wog/'
+                        sh 'cp ./* /var/tmp/wog/'
+                    } catch (Exception e) {
+                        echo 'Exception occurred: ' + e.toString()
+                    }
+                }
             }
         }
         stage('Start web server') {
