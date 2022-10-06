@@ -18,8 +18,8 @@ pipeline {
         }
         stage('Start web server') {
             steps {
-                sh 'kill -2 $(pidof nohup)'
-                sh 'nohup python3 /var/tmp/wog/MainScores.py &'
+                sh 'chmod 777 web_init.sh'
+                sh './web_init.sh'
             }
         }
     }
