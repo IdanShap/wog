@@ -14,8 +14,8 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'mkdir /var/tmp/wog/'
-                        sh 'cp ./* /var/tmp/wog/'
+                        sh 'mkdir /var/tmp/'
+                        sh 'cp ./* /var/tmp/'
                     } catch (Exception e) {
                         echo 'Exception occurred: ' + e.toString()
                     }
@@ -24,8 +24,8 @@ pipeline {
         }
         stage('Start web server') {
             steps {
-                sh 'chmod 777 web_init.sh'
-                sh './web_init.sh'
+                sh 'chmod 777 /var/tmp/web_init.sh'
+                sh '/var/tmp/web_init.sh'
             }
         }
     }
