@@ -1,7 +1,7 @@
 import utils
-from devops_final_project.WOG_Idan_Shapira.games.GuessGame import GuessGame
-from devops_final_project.WOG_Idan_Shapira.games.MemoryGame import MemoryGame
-from devops_final_project.WOG_Idan_Shapira.games.CurrecyRouletteGame import CurrencyRouletteGame
+from games.GuessGame import GuessGame
+from games.MemoryGame import MemoryGame
+from games.CurrecyRouletteGame import CurrencyRouletteGame
 
 # can tweak these variables
 DEBUG = False
